@@ -70,4 +70,24 @@ function modificar(){
 
 function eliminar(){
 
+
+    var cedula = document.getElementById("cedula");
+    var nombre = document.getElementById("nombre");
+    var apellido = document.getElementById("apellido");
+
+    var estudiantes = JSON.parse(localStorage.getItem("estudiantes") || "[]")
+
+    encontrado = false;
+
+    for (let i = 0; i < estudiantes.length; i++) {
+
+        if(estudiantes[i].cedula == cedula.value){
+        
+
+           estudiantes.splice(i, i+1);
+           localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
+
+
+        }
+    }
 }
